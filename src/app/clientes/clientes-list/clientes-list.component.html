@@ -18,6 +18,10 @@
         <ng-template pTemplate="body" let-cliente>
           <tr>
             <td>
+              <span class="p-column-title">Usuário</span>
+              {{ cliente.user.nome }}
+            </td>
+            <td>
               <span class="p-column-title">Nome</span>
               {{ cliente.nome }}
             </td>
@@ -25,7 +29,7 @@
               <span class="p-column-title">Documento</span>
               {{ cliente.documento }}
             </td>
-            
+
             <td class="col-actions">
               <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
               <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>

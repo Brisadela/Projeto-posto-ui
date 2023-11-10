@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ClienteService } from '../cliente.service';
 
 @Component({
   selector: 'app-clientes-list',
@@ -7,11 +8,22 @@ import { Component } from '@angular/core';
 })
 export class ClientesListComponent {
 
-  clientes = [
-    { nome: 'jose', documento: '0000000000000' },
-    { nome: 'joalise', documento: '0000000000000' },
-    { nome: 'jose', documento: '0000000000000' },
 
-  ];
 
+  clientes = [];
+
+  constructor(private clienteService: ClienteService){ }
+
+  ngOnInit(): void {
+    this.list();
+  }
+
+  list(): void {
+    this.clienteService.list()
+      .then(result => {
+        this.clientes = result;
+      });
+  }
 }
+
+

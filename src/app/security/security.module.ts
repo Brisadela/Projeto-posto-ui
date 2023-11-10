@@ -4,7 +4,11 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
+export function tokenGetter(): any {
+  return localStorage.getItem('token');
+}
 
 
 @NgModule({
@@ -15,8 +19,16 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     FormsModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        allowedDomains: ['localhost:8080'],
+        disallowedRoutes: ['http://localhost:8080/oauth/token']
+      }
+    }),
   ],
+  providers: [JwtHelperService ],
   exports: [LoginFormComponent]
 
 })
