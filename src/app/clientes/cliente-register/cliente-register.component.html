@@ -1,0 +1,33 @@
+<div class="container">
+  <form>
+
+    <div class="p-grid">
+      <div class="p-col-12">
+        <h1>Nova Cliente</h1>
+      </div>
+
+      <div class="p-col-12 p-md-6 p-fluid">
+        <label>Nome</label>
+        <input pInputText type="string" type="text" name="nome"
+        [(ngModel)]="cliente.nome" #nome="ngModel" required>
+        <app-message [control]="nome" error="required" text="Informe um Nome"></app-message>
+      </div>
+
+      <div class="p-col-6 p-md-3 p-fluid">
+        <label>Documento</label>
+        <input pInputText type="text" name="documento"
+        [(ngModel)]="cliente.documento" #documento="ngModel" required>
+        <app-message [control]="documento" error="required" text="Informe uma documento"></app-message>
+      </div>
+
+      <div class="p-col-12">
+      	<p>
+	  <button pButton type="submit" label="Salvar"></button>
+	  <button pButton type="button" label="Nova" class="p-button-info"></button>
+	  <a href="javascript:;">Voltar para a pesquisa</a>
+        </p>
+      </div>
+    </div>
+
+  </form>
+</div>

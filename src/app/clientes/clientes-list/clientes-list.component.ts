@@ -19,7 +19,7 @@ export class ClientesListComponent {
   }
 
   list(): void {
-    this.clienteService.list()
+    this.clienteService.listByUser()
       .then(result => {
         this.clientes = result;
       });

@@ -10,3 +10,7 @@ body {
     margin: 0 auto;
   }
 }
+
+form .p-button {
+  margin-right: .25em;
+}
