@@ -13,6 +13,7 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { ClienteRegisterComponent } from './cliente-register/cliente-register.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -32,7 +33,8 @@ import { SharedModule } from '../shared/shared.module';
     TooltipModule,
     CalendarModule,
     DropdownModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     ClientesListComponent,

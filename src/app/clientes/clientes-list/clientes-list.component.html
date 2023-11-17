@@ -9,7 +9,6 @@
       <p-table [value]="clientes" responsiveLayout="stack" [breakpoint]="'768px'">
         <ng-template pTemplate="header">
           <tr>
-
             <th>Nome</th>
             <th>Documento</th>
             <th class="col-actions-header"></th>
@@ -17,10 +16,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-cliente>
           <tr>
-            <td>
-              <span class="p-column-title">Usuário</span>
-              {{ cliente.user.nome }}
-            </td>
+
             <td>
               <span class="p-column-title">Nome</span>
               {{ cliente.nome }}
@@ -31,15 +27,18 @@
             </td>
 
             <td class="col-actions">
-              <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
-              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+            <!-- <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>-->
+            <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"[routerLink]="['/clientes', cliente.id]"></a>
+              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"  (click)="confirmRemoval(cliente)"></button>
             </td>
           </tr>
         </ng-template>
       </p-table>
     </div>
     <div class="p-col-12">
-      <p><a pButton label="Novo Cliente"></a></p>
+     <!--<p><a pButton label="Novo Cliente"></a></p>-->
+
+     <p><a pButton label="Novo Cliente" routerLink="/clientes/new"></a></p>
     </div>
   </div>
 </div>

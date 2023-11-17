@@ -13,7 +13,7 @@ export class Cliente {
   nome!: string;
   documento!: string;
 
-  user = new User();
+
 
   static toJson(cliente: Cliente): any {
     return {
@@ -21,7 +21,7 @@ export class Cliente {
       nome: cliente.nome,
       documento:cliente.documento,
 
-      user: cliente.user
+
     }
   }
 }
