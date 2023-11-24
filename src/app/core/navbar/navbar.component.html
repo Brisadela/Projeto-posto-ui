@@ -10,11 +10,12 @@
   </div>
 
   <ul class="navbar-menu" [hidden]="!displayingMenu">
-    <li class="navbar-user">Fernando Duarte</li>
-    <li class="navbar-menuitem"><a href="#">clientes</a></li>
-   
+    <li class="navbar-user">{{ auth.jwtPayload?.name }}</li>
+    <li class="navbar-menuitem" routerLinkActive="active"><a routerLink="/clientes">clientes</a></li>
+    <li class="navbar-menuitem"><a routerLink="/users">Users</a></li>
     <li class="navbar-menuitem"><a href="#">Logout</a></li>
   </ul>
 
 </nav>
+
 

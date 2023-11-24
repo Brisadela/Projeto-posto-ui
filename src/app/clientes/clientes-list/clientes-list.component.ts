@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { ClienteService } from '../cliente.service';
@@ -9,7 +10,7 @@ import { ClienteService } from '../cliente.service';
   styleUrls: ['./clientes-list.component.css']
 })
 export class ClientesListComponent {
-
+  header = 'Posto-Ui';
 
 
   clientes = [];
@@ -17,9 +18,11 @@ export class ClientesListComponent {
   constructor(private clienteService: ClienteService,
     private confirmation: ConfirmationService,
     private messageService: MessageService,
-    private errorHandler: ErrorHandlerService){ }
+    private errorHandler: ErrorHandlerService,
+    private title: Title){ }
 
   ngOnInit(): void {
+    this.title.setTitle('Listagem de Clintes');
     this.list();
   }
 

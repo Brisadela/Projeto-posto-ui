@@ -2,10 +2,13 @@ import * as moment from 'moment';
 
 export class User {
   id!: number;
+  name!: string;
+  email!: string;
+  age!: number;
+  password!: string;
+  active = true;
 
-  constructor(){
-    this.id = 1;
-  }
+
 }
 
 export class Cliente {

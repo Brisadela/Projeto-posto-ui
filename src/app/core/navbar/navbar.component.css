@@ -44,3 +44,16 @@
 .navbar-menuitem a:hover {
   color: #fff;
 }
+
+.navbar-user {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #525151;
+
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+.navbar-menuitem.active {
+   background-color: #494541;
+}

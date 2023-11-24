@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/security/auth.service';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cliente-register',
@@ -23,13 +24,15 @@ export class ClienteRegisterComponent {
     private errorHandler: ErrorHandlerService,
     private messageService: MessageService,
     private route: ActivatedRoute,
-    private router: Router){}
+    private router: Router,
+    private title: Title){}
 
     ngOnInit(): void {
       const id = this.route.snapshot.params[`id`];
       if(id != 'new'){
         this.loadCliente(id);
       }
+      this.title.setTitle('Cadastro de Clientes');// aqui!
     }
     get editing(): boolean {
       return Boolean(this.cliente.id);

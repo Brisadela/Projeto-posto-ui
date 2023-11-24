@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -12,9 +13,13 @@ export class LoginFormComponent {
   jwtPayload: any;
   msg: any;
 
-  constructor( private auth: AuthService, private router: Router) {
+  constructor( private auth: AuthService, private router: Router, private title: Title) {
 
     this.jwtPayload = this.auth.jwtPayload;
+  }
+
+  ngOnInit(): void {
+    this.title.setTitle('Login de Usuário');
   }
 
   login(user: string, password: string) {

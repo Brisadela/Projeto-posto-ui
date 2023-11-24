@@ -1,0 +1,55 @@
+<div class="container">
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="save(f)">
+
+    <div class="p-grid">
+      <div class="p-col-12">
+        <h1>Cadastre-se</h1>
+      </div>
+
+      <div class="p-col-12 p-md-9 p-fluid">
+        <label>Nome completo</label>
+        <input pInputText name="name" type="text"
+        [(ngModel)]="user.name" #name="ngModel" required minlength="3" maxlength="50">
+        <app-message [control]="name" error="required" text="Informe um nome"></app-message>
+        <app-message [control]="name" error="minlength"
+            text="Mínimo de {{ name.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ name.errors?.minlength?.actualLength }}"></app-message>
+      </div>
+
+      <div class="p-col-12 p-md-9 p-fluid">
+        <label>E-mail</label>
+        <input pInputText name="email" type="email"
+        [(ngModel)]="user.email" #email="ngModel" required>
+        <app-message [control]="email" error="required" text="Informe um e-mail"></app-message>
+      </div>
+
+      <div class="p-col-12 p-md-9 p-fluid">
+        <label>Idade</label>
+        <input pInputText name="age" type="number" step="1"
+        [(ngModel)]="user.age" #age="ngModel" required min="12">
+        <app-message [control]="age" error="required" text="Informe uma idade"></app-message>
+        <app-message [control]="age" error="min"
+            text="Idade mínima de 12 anos para usar o aplicativo."></app-message>
+      </div>
+
+      <div class="p-col-12 p-md-9 p-fluid">
+        <label>Senha</label>
+        <input pInputText name="password" type="password"
+        [(ngModel)]="user.password" #password="ngModel" required minlength="6" maxlength="8">
+        <app-message [control]="password" error="required" text="Informe uma senha de 6 a 8 caracteres."></app-message>
+        <app-message [control]="password" error="minlength"
+        text="Mínimo de {{ password.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ password.errors?.minlength?.actualLength }}"></app-message>
+      </div>
+
+
+
+
+
+      <div class="p-col-12">
+        <p>
+          <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
+        </p>
+      </div>
+    </div>
+
+  </form>
+</div>
