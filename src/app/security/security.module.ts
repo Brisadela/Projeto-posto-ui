@@ -6,6 +6,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { PostoHttpInterceptor } from './posto--http-interceptor';
+import { AuthGuard } from './auth.guard';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -30,7 +33,12 @@ export function tokenGetter(): any {
     }),
     RouterModule,
   ],
-  providers: [JwtHelperService ],
+  providers: [JwtHelperService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: PostoHttpInterceptor,
+    multi: true
+  }, AuthGuard
+],
   exports: [LoginFormComponent]
 
 })

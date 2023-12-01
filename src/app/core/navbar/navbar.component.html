@@ -11,9 +11,11 @@
 
   <ul class="navbar-menu" [hidden]="!displayingMenu">
     <li class="navbar-user">{{ auth.jwtPayload?.name }}</li>
-    <li class="navbar-menuitem" routerLinkActive="active"><a routerLink="/clientes">clientes</a></li>
-    <li class="navbar-menuitem"><a routerLink="/users">Users</a></li>
-    <li class="navbar-menuitem"><a href="#">Logout</a></li>
+    <li class="navbar-menuitem" routerLinkActive="active" *ngIf="auth.hasPermission('ROLE_SEARCH_ACTIVITY')">
+      <a routerLink="/clientes">clientes</a>
+    </li>
+    <li class="navbar-menuitem"><a routerLink="/users/new">Users</a></li>
+    <li class="navbar-menuitem"><a href="javascript:;" (click)="logout()">Logout</a></li>
   </ul>
 
 </nav>

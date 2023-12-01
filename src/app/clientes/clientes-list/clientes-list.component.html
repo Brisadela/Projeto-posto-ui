@@ -29,7 +29,7 @@
             <td class="col-actions">
             <!-- <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>-->
             <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"[routerLink]="['/clientes', cliente.id]"></a>
-              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"  (click)="confirmRemoval(cliente)"></button>
+              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"  (click)="confirmRemoval(cliente)" [disabled]="!auth.hasPermission('ROLE_REMOVE_ACTIVITY')"></button>
             </td>
           </tr>
         </ng-template>

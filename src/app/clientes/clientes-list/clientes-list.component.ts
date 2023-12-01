@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { AuthService } from 'src/app/security/auth.service';
 import { ClienteService } from '../cliente.service';
 
 @Component({
@@ -19,7 +20,9 @@ export class ClientesListComponent {
     private confirmation: ConfirmationService,
     private messageService: MessageService,
     private errorHandler: ErrorHandlerService,
-    private title: Title){ }
+    private title: Title,
+    public auth: AuthService){ }
+
 
   ngOnInit(): void {
     this.title.setTitle('Listagem de Clintes');
