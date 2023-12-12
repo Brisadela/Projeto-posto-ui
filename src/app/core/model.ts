@@ -15,8 +15,9 @@ export class Cliente {
   id!: number;
   nome!: string;
   documento!: string;
+  user:any;
 
-
+  
 
   static toJson(cliente: Cliente): any {
     return {

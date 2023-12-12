@@ -29,7 +29,7 @@ export class ErrorHandlerService {
       msg = 'Ocorreu um erro ao processar a sua solicitação';
 
       if (errorResponse.status === 404) {
-        msg = 'Nenhuma atividade cadastrada.';
+        msg = 'Nenhum cliente cadastrada.';
       }
 
 

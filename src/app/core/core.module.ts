@@ -1,5 +1,5 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { CommonModule , registerLocaleData} from '@angular/common';
+import { CommonModule ,DatePipe, registerLocaleData} from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 
 import { AuthService } from '../security/auth.service';
@@ -40,7 +40,8 @@ registerLocaleData(localePt);
     MessageService,
     ConfirmationService,
     { provide: LOCALE_ID, useValue: 'pt-BR' },
-    Title
+    Title,
+    DatePipe
   ],
 
 

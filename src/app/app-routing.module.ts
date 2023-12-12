@@ -15,29 +15,29 @@ const routes: Routes = [
     path: 'clientes/:id',
     component: ClienteRegisterComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['ROLE_REGISTER_ACTIVITY']}
+    data: { roles: ['ROLE_GERENCIA']}
   },
   { path: 'clientes',
     component: ClientesListComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['ROLE_SEARCH_ACTIVITY']}
+    data: { roles: ['ROLE_GERENCIA']}
   },
   {
     path: 'clientes/new',
     component: ClienteRegisterComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['ROLE_REGISTER_ACTIVITY']}
+    data: { roles: ['ROLE_GERENCIA']}
   },
   {
      path: 'users/new',
      component: UserRegisterComponent,
-     
+
      },
 
   { path: 'login', component: LoginFormComponent },
   { path: 'page-not-found', component: PageNotFoundComponent },
   { path: 'not-authorized', component: NotAuthorizedComponent }, // pagina-nao-encontrada
-  { path: '**', redirectTo: 'page-not-found'} // importante que seja a última rota
+ // { path: '**', redirectTo: 'page-not-found'} // importante que seja a última rota
 ];
 
 @NgModule({
